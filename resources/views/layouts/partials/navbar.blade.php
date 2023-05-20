@@ -39,7 +39,7 @@
                                 <a class="dropdown-item" href="readOnline">Read Online</a>
                                 <a class="dropdown-item" href="readOnline">order Online</a>
                                 <a class="dropdown-item" href="readOnline">Rent</a>
-                                <a class="dropdown-item" href="readOnline">Liberary</a>
+                                <a class="dropdown-item" href="{{ route('inventory.save') }}">Liberary</a>
                             </ul>
                             </li>
                         </ul>

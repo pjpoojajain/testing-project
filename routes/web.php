@@ -34,12 +34,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/login', 'LoginController@show')->name('login.show');
         Route::post('/login', 'LoginController@login')->name('login.perform');
 
-         /**
-         * add book Routes
-         */
-        Route::get('/addBook', 'InventoryController@show')->name('inventory.show');
-        Route::post('/addBook', 'InventoryController@store')->name('inventory.perform');
-
     });
 
     Route::group(['middleware' => ['auth']], function() {
@@ -48,4 +42,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          */
         Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
     });
+
+    /**
+         * add book Routes
+         */
+        Route::get('/addBook', 'InventoryController@index')->name('inventory.show');
+        Route::post('/addBook', 'InventoryController@store')->name('inventory.perform');
+        Route::get('/library', 'InventoryController@showLibrary')->name('inventory.save');
 });
