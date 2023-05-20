@@ -34,7 +34,7 @@
                             @auth
                                 {{auth()->user()->name}}
                                 <a class="dropdown-item" href="{{ route('logout.perform') }}">Logout</a>
-                                <a class="dropdown-item" href="addBook">Add Book</a>
+                                <a class="dropdown-item" href="{{ route('inventory.perform') }}">Add Book</a>
                             @endauth
                                 <a class="dropdown-item" href="readOnline">Read Online</a>
                                 <a class="dropdown-item" href="readOnline">order Online</a>

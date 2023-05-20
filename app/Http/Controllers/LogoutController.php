@@ -18,7 +18,7 @@ class LogoutController extends Controller
         
         Auth::logout();
 
-        return redirect('login');
+        return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : 'login');
     }
 }
 ?>

@@ -2,10 +2,18 @@
 
 namespace Database\Factories;
 
+use App\Models\Inventory;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class InventoryFactory extends Factory
 {
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Inventory::class;
     /**
      * Define the model's default state.
      *
@@ -14,11 +22,16 @@ class InventoryFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name,
-            'email' => $this->faker->unique()->safeEmail,
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+            'title' => $this->faker->title,
+           // 'description' => $this->faker->description,
+           // 'author' => $this->faker->author,
+           // 'category' => $this->faker->category,
+           // 'title' => $this->faker->title,
+            //'published_year' => $this->faker->published_year,
+           // 'price' => $this->faker->price,
+           // 'condition' => $this->faker->condition,
+           // 'qty' => $this->faker->qty,
+           // 'remember_token' => Str::random(10),
         ];
     }
 }

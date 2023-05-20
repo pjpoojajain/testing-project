@@ -38,7 +38,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          * add book Routes
          */
         Route::get('/addBook', 'InventoryController@show')->name('inventory.show');
-        Route::post('/login', 'LoginController@login')->name('login.perform');
+        Route::post('/addBook', 'InventoryController@store')->name('inventory.perform');
 
     });
 

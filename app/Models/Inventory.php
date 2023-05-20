@@ -9,12 +9,7 @@ class Inventory extends Model
 {
     use HasFactory;
 
-     /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
-        'name', 'email', 'password', 'username'
+        'title', 'description', 'author', 'category', 'published_year', 'price', 'condition', 'qty'
     ];
 }
