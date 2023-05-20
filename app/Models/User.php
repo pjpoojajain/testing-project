@@ -11,13 +11,15 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    protected $table = 'different_table_name_will_here';
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'username'
     ];
 
     /**
@@ -37,4 +39,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+ * Always encrypt the password when it is updated.
+ *
+  * @param $value
+ * @return string
+ */
+public function setPasswordAttribute($value)
+{
+   $this->attributes['password'] = bcrypt($value);
+}
 }
