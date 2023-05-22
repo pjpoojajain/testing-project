@@ -48,5 +48,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          */
         Route::get('/addBook', 'InventoryController@index')->name('inventory.show');
         Route::post('/addBook', 'InventoryController@store')->name('inventory.perform');
-        Route::get('/library', 'InventoryController@showLibrary')->name('inventory.save');
+        Route::get('/library', 'InventoryController@showLibrary')->name('inventory.showLibrary');
+        Route::post('/deleteBook/{id}', 'InventoryController@destroy')->name('inventory.destroy');
+
+        Route::get('/sending-queue-emails', 'InventoryController@sendWelcomeEmail');
 });

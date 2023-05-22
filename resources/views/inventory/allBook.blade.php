@@ -20,68 +20,46 @@ tr:nth-child(even){background-color: #f2f2f2}
 </head>
 <body>
 
-<h2>Responsive Table</h2>
-<p>If you have a table that is too wide, you can add a container element with overflow-x:auto around the table, and it will display a horizontal scroll bar when needed.</p>
-<p>Resize the browser window to see the effect. Try to remove the div element and see what happens to the table.</p>
-
+<h2 style="text-align: center;">Library</h2>
 <div style="overflow-x:auto;">
   <table>
     <tr>
       <th>ID</th>
-      <th>Last Name</th>
-      <th>Points</th>
-      <th>Points</th>
-      <th>Points</th>
-      <th>Points</th>
-      <th>Points</th>
-      <th>Points</th>
-      <th>Points</th>
-      <th>Points</th>
-      <th>Points</th>
-      <th>Points</th>
+      <th>Book Title</th>
+      <th>Description</th>
+      <th>Author</th>
+      <th>Book Category</th>
+      <th>Published Year</th>
+      <th>Price</th>
+      <th>Condition</th>
+      <th>Qty</th>
+      <th>Action</th>
     </tr>
+    @foreach ($data as $bookData)
     <tr>
-      <td>{{ $data[0]->id }}</td>
-      <td>Smith</td>
-      <td>50</td>
-      <td>50</td>
-      <td>50</td>
-      <td>50</td>
-      <td>50</td>
-      <td>50</td>
-      <td>50</td>
-      <td>50</td>
-      <td>50</td>
-      <td>50</td>
+      <td>{{ $bookData->id }}</td>
+      <td>{{ $bookData->title }}</td>
+      <td>{{ $bookData->description }}</td>
+      <td>{{ $bookData->author }}</td>
+      <td>{{ $bookData->category }}</td>
+      <td>{{ $bookData->published_year }}</td>
+      <td>{{ $bookData->price }}</td>
+      <td>{{ $bookData->condition }}</td>
+      <td>{{ $bookData->qty }}</td>
+      <td>
+        <form action="{{ route('inventory.destroy',$bookData->id) }}" method="POST">
+   
+          <a class="btn btn-info" href="{{ route('inventory.showLibrary',$bookData->id) }}">Show</a>
+
+          <a class="btn btn-primary" href="{{ route('inventory.show',$bookData->id) }}">Edit</a>
+
+          @csrf
+
+          <button type="submit" class="btn btn-danger">Delete</button>
+        </form>
+      </td>
     </tr>
-    <tr>
-      <td>Eve</td>
-      <td>Jackson</td>
-      <td>94</td>
-      <td>94</td>
-      <td>94</td>
-      <td>94</td>
-      <td>94</td>
-      <td>94</td>
-      <td>94</td>
-      <td>94</td>
-      <td>94</td>
-      <td>94</td>
-    </tr>
-    <tr>
-      <td>Adam</td>
-      <td>Johnson</td>
-      <td>67</td>
-      <td>67</td>
-      <td>67</td>
-      <td>67</td>
-      <td>67</td>
-      <td>67</td>
-      <td>67</td>
-      <td>67</td>
-      <td>67</td>
-      <td>67</td>
-    </tr>
+    @endforeach
   </table>
 </div>
 

@@ -514,6 +514,7 @@ class ComposerStaticInita7c5e25313efe83033159d0645351896
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
+        'App\\Providers\\MyServiceProvider' => __DIR__ . '/../..' . '/app/Providers/MyServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/CorsService.php',

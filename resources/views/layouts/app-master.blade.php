@@ -35,9 +35,6 @@
     <link href="{!! url('css/app.css') !!}" rel="stylesheet">
 </head>
 <body>
-    
-    @include('layouts.partials.navbar')
-
     <main class="container">
         @yield('content')
     </main>
