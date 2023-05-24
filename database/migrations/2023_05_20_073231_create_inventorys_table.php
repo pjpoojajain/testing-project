@@ -16,14 +16,14 @@ class CreateInventorysTable extends Migration
         Schema::create('inventorys', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description')->nullable();;
-            $table->string('images');
-            $table->string('author');
-            $table->string('category')->nullable();;
-            $table->string('published_year')->nullable();;
-            $table->string('price');
-            $table->string('condition');
-            $table->string('qty');
+            $table->string('description')->nullable();
+            $table->string('images')->nullable();
+            $table->string('author')->nullable();
+            $table->string('category')->nullable();
+            $table->string('published_year')->nullable();
+            $table->string('price')->nullable();
+            $table->string('condition')->nullable();
+            $table->string('qty')->nullable();
             $table->timestamps();
         });
     }

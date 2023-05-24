@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,42 +13,12 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::group(['namespace' => 'App\Http\Controllers'], function()
-{   
-    /**
-     * Home Routes
-     */
-    Route::get('/', 'HomeController@index')->name('home.index');
-    Route::get('/homepage', 'HomeController@dashboard')->name('home.dashboard');
-    Route::group(['middleware' => ['guest']], function() {
-        /**
-         * Register Routes
-         */
-        Route::get('/register', 'RegisterController@show')->name('register.show');
-        Route::post('/register', 'RegisterController@register')->name('register.perform');
-
-        /**
-         * Login Routes
-         */
-        Route::get('/login', 'LoginController@show')->name('login.show');
-        Route::post('/login', 'LoginController@login')->name('login.perform');
-
-    });
-
-    Route::group(['middleware' => ['auth']], function() {
-        /**
-         * Logout Routes
-         */
-        Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
-    });
-
-    /**
-         * add book Routes
-         */
-        Route::get('/addBook', 'InventoryController@index')->name('inventory.show');
-        Route::post('/addBook', 'InventoryController@store')->name('inventory.perform');
-        Route::get('/library', 'InventoryController@showLibrary')->name('inventory.showLibrary');
-        Route::post('/deleteBook/{id}', 'InventoryController@destroy')->name('inventory.destroy');
-
-        Route::get('/sending-queue-emails', 'InventoryController@sendWelcomeEmail');
+Route::get('/', function () {
+    return view('welcome');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';

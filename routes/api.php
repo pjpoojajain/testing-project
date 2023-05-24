@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReadersController;
+use App\Http\Controllers\UserAuthenticationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::prefix('v1')->group(function () {
+    Route::post('login', [UserAuthenticationController::class, 'login']);
+    Route::post('register', [UserAuthenticationController::class, 'register']);
 });
 
-Route::get('/expenses', 'ExpenseController@all')->name('expenses.all');
-Route::post('/expenses', 'ExpenseController@store')->name('expenses.store');
-Route::get('/expenses/{expense}', 'ExpenseController@show')->name('expenses.show');
-Route::put('/expenses/{expense}', 'ExpenseController@update')->name('expenses.update');
-Route::delete('/expenses/{expense}', 'ExpenseController@destory')->name('expenses.destroy');
+
+//These routes are protected using middleware
+Route::prefix('v1')->middleware('auth:sanctum')->group(function () {
+    Route::post('logout', [UserAuthenticationController::class, 'logout']);
+    Route::apiResource('readers', ReadersController::class);
+});

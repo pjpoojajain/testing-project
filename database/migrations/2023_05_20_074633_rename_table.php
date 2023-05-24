@@ -13,7 +13,7 @@ class RenameTable extends Migration
      */
     public function up()
     {
-        Schema::rename('inventory', 'inventories');
+        Schema::rename('inventorys', 'inventories');
     }
 
     /**
@@ -23,6 +23,6 @@ class RenameTable extends Migration
      */
     public function down()
     {
-        //
+        //Schema::dropIfExists('inventorys');
     }
 }

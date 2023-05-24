@@ -23,12 +23,12 @@ class InventoryFactory extends Factory
     {
         return [
             'title' => $this->faker->title,
-           // 'description' => $this->faker->description,
+            'description' => $this->faker->sentence(),
            // 'author' => $this->faker->author,
            // 'category' => $this->faker->category,
            // 'title' => $this->faker->title,
             //'published_year' => $this->faker->published_year,
-           // 'price' => $this->faker->price,
+           'price' => $this->faker->numberBetween(1, 99),
            // 'condition' => $this->faker->condition,
            // 'qty' => $this->faker->qty,
            // 'remember_token' => Str::random(10),
